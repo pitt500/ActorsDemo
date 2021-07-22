@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ConversationView: View {
-    @ObservedObject var chatManager: GroupChatViewModel
+    @ObservedObject var viewModel: GroupChatViewModel
 
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack {
-                    ForEach(chatManager.messages) { message in
+                    ForEach(viewModel.messages) { message in
                         MessageView(chatMessage: message)
                             .transition(
                                 .move(
@@ -24,8 +24,8 @@ struct ConversationView: View {
                     }
                 }
             }
-            .onChange(of: chatManager.messages) { _ in
-                if let last = chatManager.last {
+            .onChange(of: viewModel.messages) { _ in
+                if let last = viewModel.last {
                     withAnimation(.easeOut) {
                         proxy.scrollTo(last.id)
                     }
@@ -37,6 +37,6 @@ struct ConversationView: View {
 
 struct ConversationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConversationView(chatManager: GroupChatViewModel())
+        ConversationView(viewModel: GroupChatViewModel())
     }
 }

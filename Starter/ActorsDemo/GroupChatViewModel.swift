@@ -27,6 +27,10 @@ class GroupChatViewModel: ObservableObject {
         }
         text = ""
     }
+
+    var isTextfieldEmpty: Bool {
+        text.isEmpty
+    }
 }
 
 extension GroupChatViewModel {

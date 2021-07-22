@@ -8,32 +8,20 @@
 import SwiftUI
 
 struct GroupChatView: View {
-    @StateObject private var chatManager = GroupChatViewModel()
+    @StateObject private var groupChatVM = GroupChatViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
-                ConversationView(chatManager: chatManager)
+                ConversationView(viewModel: groupChatVM)
                 Divider()
-                HStack {
-                    TextField("Enter your message", text: $chatManager.text)
-                        .padding([.leading, .trailing], 10)
-                    Button {
-                        chatManager.addNewMessageFromTextField()
-                    } label: {
-                        Image(systemName: "paperplane.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    }
-
-
-                }
+                ChatTextfield(viewModel: groupChatVM)
                 .padding(10)
             }
             .navigationTitle("Actors Demo!")
         }
         .onAppear {
-            chatManager.generateMessages()
+            groupChatVM.generateMessages()
         }
 
     }

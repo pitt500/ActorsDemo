@@ -17,7 +17,7 @@ class ChatService {
 
             //More than one concurrent thread at the same time will crash the app at some point!
             //Change this code to only 1 and will work as expected
-            let randomNumberOfMessages = Int.random(in: 1...5)
+            let randomNumberOfMessages = 1//Int.random(in: 1...5)
 
             DispatchQueue.concurrentPerform(iterations: randomNumberOfMessages) { iteration in
                 let message = Message(content: "Message #\(iteration)")
