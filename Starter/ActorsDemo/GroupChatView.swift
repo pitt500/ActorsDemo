@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GroupChatView: View {
     @StateObject private var chatManager = GroupChat()
 
     var body: some View {
@@ -21,8 +21,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct GroupChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GroupChatView()
     }
 }
