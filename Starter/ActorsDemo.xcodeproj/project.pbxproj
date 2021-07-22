@@ -51,6 +51,7 @@
 		B56A3B2926A9DA32004FCDB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B56A3B2B26A9DAFE004FCDB4 /* ChatTextfield.swift */,
 				B56A3B2726A9D951004FCDB4 /* ConversationView.swift */,
 				B5EFC9F726A9AE7D008BFF15 /* MessageView.swift */,
 				B5F8341D26A5BE6B00E4215E /* GroupChatView.swift */,
@@ -94,7 +95,6 @@
 				B5F8342126A5BE6D00E4215E /* Preview Content */,
 				B5EFC9F026A5C90C008BFF15 /* GroupChatViewModel.swift */,
 				B5EFC9F526A91C9C008BFF15 /* ChatService.swift */,
-				B56A3B2B26A9DAFE004FCDB4 /* ChatTextfield.swift */,
 			);
 			path = ActorsDemo;
 			sourceTree = "<group>";
