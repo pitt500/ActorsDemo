@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GroupChatView: View {
-    @StateObject private var chatManager = GroupChat()
+    @StateObject private var chatManager = GroupChatViewModel()
 
     var body: some View {
         ScrollViewReader { proxy in

@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class GroupChat: ObservableObject {
+class GroupChatViewModel: ObservableObject {
     @Published var messages: [Message] = []
     let service = ChatService()
 }
 
-extension GroupChat {
+extension GroupChatViewModel {
     var last: Message? {
         messages.last
     }
@@ -22,7 +22,7 @@ extension GroupChat {
     }
 }
 
-extension GroupChat {
+extension GroupChatViewModel {
     func generateMessages() {
         service.newMessage { message in
             DispatchQueue.main.async {
