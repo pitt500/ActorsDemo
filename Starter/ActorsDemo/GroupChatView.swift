@@ -11,30 +11,51 @@ struct GroupChatView: View {
     @StateObject private var chatManager = GroupChatViewModel()
 
     var body: some View {
-        ScrollViewReader { proxy in
-            ScrollView {
-                LazyVStack {
-                    ForEach(chatManager.messages) { message in
-                        MessageView(chatMessage: message)
-                            .transition(
-                                .move(
-                                    edge: message.direction == .left ? .leading : .trailing
-                                )
-                            )
+        NavigationView {
+            VStack {
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(chatManager.messages) { message in
+                                MessageView(chatMessage: message)
+                                    .transition(
+                                        .move(
+                                            edge: message.direction == .left ? .leading : .trailing
+                                        )
+                                    )
+                            }
+                        }
+                    }
+                    .onChange(of: chatManager.messages) { _ in
+                        if let last = chatManager.last {
+                            withAnimation(.easeOut) {
+                                proxy.scrollTo(last.id)
+                            }
+                        }
                     }
                 }
-            }
-            .onAppear {
-                chatManager.generateMessages()
-            }
-            .onChange(of: chatManager.messages) { _ in
-                if let last = chatManager.last {
-                    withAnimation(.easeOut) {
-                        proxy.scrollTo(last.id)
+                Divider()
+                HStack {
+                    TextField("Enter your message", text: $chatManager.text)
+                        .padding([.leading, .trailing], 10)
+                    Button {
+                        chatManager.addNewMessageFromTextField()
+                    } label: {
+                        Image(systemName: "paperplane.fill")
+                            .resizable()
+                            .frame(width: 20, height: 20)
                     }
+
+
                 }
+                .padding(10)
             }
+            .navigationTitle("Actors Demo!")
         }
+        .onAppear {
+            chatManager.generateMessages()
+        }
+
     }
 }
 

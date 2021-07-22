@@ -9,6 +9,7 @@ import SwiftUI
 
 class GroupChatViewModel: ObservableObject {
     @Published var messages: [ChatMessage] = []
+    @Published var text = ""
     let service = ChatService()
 
     func addNewMessage(_ message: Message) {
@@ -17,6 +18,14 @@ class GroupChatViewModel: ObservableObject {
         withAnimation {
             messages.append(ChatMessage(message: message, direction: direction))
         }
+    }
+
+    func addNewMessageFromTextField() {
+        let message = Message(content: text, date: Date.now)
+        withAnimation {
+            messages.append(ChatMessage(message: message, direction: .right))
+        }
+        text = ""
     }
 }
 
