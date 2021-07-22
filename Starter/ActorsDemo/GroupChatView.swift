@@ -13,27 +13,7 @@ struct GroupChatView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollViewReader { proxy in
-                    ScrollView {
-                        LazyVStack {
-                            ForEach(chatManager.messages) { message in
-                                MessageView(chatMessage: message)
-                                    .transition(
-                                        .move(
-                                            edge: message.direction == .left ? .leading : .trailing
-                                        )
-                                    )
-                            }
-                        }
-                    }
-                    .onChange(of: chatManager.messages) { _ in
-                        if let last = chatManager.last {
-                            withAnimation(.easeOut) {
-                                proxy.scrollTo(last.id)
-                            }
-                        }
-                    }
-                }
+                ConversationView(chatManager: chatManager)
                 Divider()
                 HStack {
                     TextField("Enter your message", text: $chatManager.text)
