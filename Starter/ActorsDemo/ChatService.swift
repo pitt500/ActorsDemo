@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/// This class is simulating a call to a real API and getting multiple chat messages at the same time.
 class ChatService {
     private var messageHistory: [Message] = []
 
