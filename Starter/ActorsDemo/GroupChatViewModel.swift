@@ -8,20 +8,21 @@
 import SwiftUI
 
 class GroupChatViewModel: ObservableObject {
-    @Published var messages: [Message] = []
+    @Published var messages: [ChatMessage] = []
     let service = ChatService()
 
     func addNewMessage(_ message: Message) {
-        messages.append(message)
+        let direction: ChatBubbleShape.Direction = Bool.random() ? .left : .right
+        messages.append(ChatMessage(message: message, direction: direction))
     }
 }
 
 extension GroupChatViewModel {
-    var last: Message? {
+    var last: ChatMessage? {
         messages.last
     }
 
-    var first: Message? {
+    var first: ChatMessage? {
         messages.first
     }
 }

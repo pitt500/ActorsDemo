@@ -7,16 +7,12 @@
 
 import Foundation
 
-struct Message: Identifiable {
-    let id: UUID
+struct Message {
     let content: String
     let date: Date
 
-    init(id: UUID = UUID(), content: String, date: Date = Date()) {
-        self.id = id
+    init(content: String, date: Date = Date()) {
         self.content = content
         self.date = date
     }
 }
-
-extension Message: Hashable {}

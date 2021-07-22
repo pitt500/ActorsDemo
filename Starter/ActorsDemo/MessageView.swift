@@ -8,19 +8,28 @@
 import SwiftUI
 
 struct MessageView: View {
-    let message: Message
+    let chatMessage: ChatMessage
     
     var body: some View {
-        Text(message.content)
-            .id(message.id)
-            .frame(height: 200)
+        ChatBubble(direction: chatMessage.direction) {
+            Text(chatMessage.message.content)
+                .padding(.all, 20)
+                .background(chatMessage.direction == .left ? .green : .blue)
+                .foregroundColor(.white)
+        }
+        .id(chatMessage.id)
     }
+
+
 }
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
         MessageView(
-            message: Message(content: "This is Swift and Tips!😉")
+            chatMessage: ChatMessage(
+                message: Message(content: "This is Swift and Tips!😉"),
+                direction: .left
+            )
         )
     }
 }

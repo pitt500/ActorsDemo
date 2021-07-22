@@ -11,6 +11,8 @@
 		B5EFC9F426A8FBCE008BFF15 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EFC9F326A8FBCE008BFF15 /* Message.swift */; };
 		B5EFC9F626A91C9C008BFF15 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EFC9F526A91C9C008BFF15 /* ChatService.swift */; };
 		B5EFC9F826A9AE7D008BFF15 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EFC9F726A9AE7D008BFF15 /* MessageView.swift */; };
+		B5EFC9FA26A9B06E008BFF15 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EFC9F926A9B06E008BFF15 /* ChatBubble.swift */; };
+		B5EFC9FC26A9B287008BFF15 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EFC9FB26A9B287008BFF15 /* ChatMessage.swift */; };
 		B5F8341C26A5BE6B00E4215E /* ActorsDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8341B26A5BE6B00E4215E /* ActorsDemoApp.swift */; };
 		B5F8341E26A5BE6B00E4215E /* GroupChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8341D26A5BE6B00E4215E /* GroupChatView.swift */; };
 		B5F8342026A5BE6D00E4215E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F8341F26A5BE6D00E4215E /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		B5EFC9F326A8FBCE008BFF15 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B5EFC9F526A91C9C008BFF15 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		B5EFC9F726A9AE7D008BFF15 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		B5EFC9F926A9B06E008BFF15 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
+		B5EFC9FB26A9B287008BFF15 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		B5F8341826A5BE6B00E4215E /* ActorsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActorsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F8341B26A5BE6B00E4215E /* ActorsDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsDemoApp.swift; sourceTree = "<group>"; };
 		B5F8341D26A5BE6B00E4215E /* GroupChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				B5EFC9F326A8FBCE008BFF15 /* Message.swift */,
 				B5EFC9F526A91C9C008BFF15 /* ChatService.swift */,
 				B5EFC9F726A9AE7D008BFF15 /* MessageView.swift */,
+				B5EFC9F926A9B06E008BFF15 /* ChatBubble.swift */,
+				B5EFC9FB26A9B287008BFF15 /* ChatMessage.swift */,
 			);
 			path = ActorsDemo;
 			sourceTree = "<group>";
@@ -150,11 +156,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5EFC9F826A9AE7D008BFF15 /* MessageView.swift in Sources */,
+				B5EFC9FC26A9B287008BFF15 /* ChatMessage.swift in Sources */,
 				B5EFC9F126A5C90C008BFF15 /* GroupChatViewModel.swift in Sources */,
 				B5EFC9F426A8FBCE008BFF15 /* Message.swift in Sources */,
 				B5F8341E26A5BE6B00E4215E /* GroupChatView.swift in Sources */,
 				B5EFC9F626A91C9C008BFF15 /* ChatService.swift in Sources */,
 				B5F8341C26A5BE6B00E4215E /* ActorsDemoApp.swift in Sources */,
+				B5EFC9FA26A9B06E008BFF15 /* ChatBubble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

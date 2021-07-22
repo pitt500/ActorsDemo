@@ -15,7 +15,7 @@ struct GroupChatView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(chatManager.messages) {
-                        MessageView(message: $0)
+                        MessageView(chatMessage: $0)
                     }
                 }
             }
