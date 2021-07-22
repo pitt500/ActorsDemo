@@ -18,3 +18,5 @@ struct Message: Identifiable {
         self.date = date
     }
 }
+
+extension Message: Hashable {}

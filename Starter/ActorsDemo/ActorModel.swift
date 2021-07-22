@@ -10,20 +10,6 @@ import SwiftUI
 class GroupChat: ObservableObject {
     @Published var messages: [Message] = []
     let service = ChatService()
-
-    func newMessage(_ message: Message) {
-        self.messages.append(message)
-        print(messages.map(\.content))
-        //self.messages.append(message)
-    }
-
-    func showLastMessages(number: Int) -> [Message] {
-        return Array(messages.suffix(from: number))
-    }
-
-    func showFirstMessages(number: Int) -> [Message] {
-        return Array(messages.prefix(upTo: number))
-    }
 }
 
 extension GroupChat {

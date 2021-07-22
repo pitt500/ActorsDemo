@@ -11,13 +11,28 @@ struct GroupChatView: View {
     @StateObject private var chatManager = GroupChat()
 
     var body: some View {
-        List(chatManager.messages) { message in
-            Text("\(message.content)")
-        }
+        ScrollViewReader { proxy in
+            ScrollView {
+                LazyVStack {
+                    ForEach(chatManager.messages) { message in
+                        Text("\(message.content)")
+                            .id(message.id)
+                            .frame(height: 200)
+
+                    }
+                }
+            }
             .onAppear {
                 chatManager.generateMessages()
             }
-            .padding()
+            .onChange(of: chatManager.messages) { _ in
+                if let last = chatManager.last {
+                    withAnimation(.easeOut) {
+                        proxy.scrollTo(last.id)
+                    }
+                }
+            }
+        }
     }
 }
 
