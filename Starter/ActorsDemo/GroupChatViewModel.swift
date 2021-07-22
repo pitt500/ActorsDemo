@@ -10,6 +10,10 @@ import SwiftUI
 class GroupChatViewModel: ObservableObject {
     @Published var messages: [Message] = []
     let service = ChatService()
+
+    func addNewMessage(_ message: Message) {
+        messages.append(message)
+    }
 }
 
 extension GroupChatViewModel {
@@ -24,9 +28,10 @@ extension GroupChatViewModel {
 
 extension GroupChatViewModel {
     func generateMessages() {
-        service.newMessage { message in
+        service.newMessage { [weak self] message in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self.messages.append(message)
+                self.addNewMessage(message)
             }
         }
     }
