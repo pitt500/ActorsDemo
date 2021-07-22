@@ -13,7 +13,10 @@ class GroupChatViewModel: ObservableObject {
 
     func addNewMessage(_ message: Message) {
         let direction: ChatBubbleShape.Direction = Bool.random() ? .left : .right
-        messages.append(ChatMessage(message: message, direction: direction))
+
+        withAnimation {
+            messages.append(ChatMessage(message: message, direction: direction))
+        }
     }
 }
 
@@ -32,9 +35,7 @@ extension GroupChatViewModel {
         service.newMessage { [weak self] message in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                withAnimation {
-                    self.addNewMessage(message)
-                }
+                self.addNewMessage(message)
             }
         }
     }
