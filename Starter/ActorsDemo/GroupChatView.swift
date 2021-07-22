@@ -14,11 +14,8 @@ struct GroupChatView: View {
         ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack {
-                    ForEach(chatManager.messages) { message in
-                        Text("\(message.content)")
-                            .id(message.id)
-                            .frame(height: 200)
-
+                    ForEach(chatManager.messages) {
+                        MessageView(message: $0)
                     }
                 }
             }
