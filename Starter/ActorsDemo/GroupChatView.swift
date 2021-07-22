@@ -14,8 +14,13 @@ struct GroupChatView: View {
         ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack {
-                    ForEach(chatManager.messages) {
-                        MessageView(chatMessage: $0)
+                    ForEach(chatManager.messages) { message in
+                        MessageView(chatMessage: message)
+                            .transition(
+                                .move(
+                                    edge: message.direction == .left ? .leading : .trailing
+                                )
+                            )
                     }
                 }
             }

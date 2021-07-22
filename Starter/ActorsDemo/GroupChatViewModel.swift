@@ -32,7 +32,9 @@ extension GroupChatViewModel {
         service.newMessage { [weak self] message in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.addNewMessage(message)
+                withAnimation {
+                    self.addNewMessage(message)
+                }
             }
         }
     }
