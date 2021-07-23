@@ -12,6 +12,9 @@ class MessageStore {
     var messageHistory: [Message] = []
     let id = UUID()
 
+    //Creating a private queue
+    private let queue = DispatchQueue(label: "com.swiftandtips.actors")
+
     func newMessage(completion: (Message) -> Void) {
         //More than one concurrent thread at the same time will crash the app at some point!
         //Change this code to only 1 and will work as expected
@@ -20,9 +23,12 @@ class MessageStore {
         print("Receiving \(randomNumberOfMessages) messages")
         DispatchQueue.concurrentPerform(iterations: randomNumberOfMessages) { iteration in
 
-            let message = Message(content: "Message #\(iteration)")
-            self.messageHistory.append(message)
-            completion(message)
+            //Executing a sync operation fix the problem... but is the only possible data race?
+            queue.sync {
+                let message = Message(content: "Message #\(iteration)")
+                self.messageHistory.append(message)
+                completion(message)
+            }
         }
     }
 
