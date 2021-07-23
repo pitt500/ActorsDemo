@@ -32,7 +32,7 @@ class GroupChatViewModel: ObservableObject {
         text.isEmpty
     }
 
-    func getHistory() -> [Message] {
+    func history() -> [Message] {
         store.messageHistory
     }
 
