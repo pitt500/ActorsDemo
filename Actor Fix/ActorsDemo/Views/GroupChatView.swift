@@ -22,17 +22,18 @@ struct GroupChatView: View {
             .navigationBarItems(
                 trailing: Button(
                     action: {
-                        groupChatVM.generateMessages()
+                        Task {
+                            await groupChatVM.generateMessages()
+                        }
                     }, label: {
                         Text("Load")
                     }
                 )
             )
         }
-        .onAppear {
-            groupChatVM.generateMessages()
+        .task {
+            await groupChatVM.generateMessages()
         }
-
     }
 }
 
