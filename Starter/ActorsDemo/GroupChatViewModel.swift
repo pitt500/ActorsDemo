@@ -53,6 +53,7 @@ extension GroupChatViewModel {
 
 extension GroupChatViewModel {
     func generateMessages() {
+        print("Invoking messages")
         store.newMessage { [weak self] message in
             guard let self = self else { return }
             DispatchQueue.main.async {

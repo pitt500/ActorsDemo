@@ -55,12 +55,11 @@ extension GroupChatViewModel {
 extension GroupChatViewModel {
 
     func generateMessages() async {
-        print("asdasd")
+        print("Invoking messages")
         await store.newMessage { [weak self] message in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.addNewMessage(message)
-                print("hello")
             }
         }
     }
