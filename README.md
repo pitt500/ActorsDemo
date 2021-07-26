@@ -13,4 +13,10 @@ And of course, implementing concurrent code is hard to maintain and debug. In Sw
 
 However, that will change forever with the usage of Actors. Let’s explore today how they work and how building concurrent code is now safer.
 
+## Requirements
+- Xcode 13 beta 3+
+- iOS 15+
+- Swift 5.5+
+
+
 [My Twitter](https://twitter.com/swiftandtips)
