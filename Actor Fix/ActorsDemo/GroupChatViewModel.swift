@@ -12,7 +12,9 @@ class GroupChatViewModel: ObservableObject {
     @Published var text = ""
     let store = MessageStore()
 
-    func addNewMessage(_ message: Message) {
+    // We are decorating with @MainActor all methods
+    // that are mutating states to only doing it in the main thread
+    @MainActor func addNewMessage(_ message: Message) {
         let direction: ChatBubbleShape.Direction = Bool.random() ? .left : .right
 
         withAnimation {
@@ -20,7 +22,7 @@ class GroupChatViewModel: ObservableObject {
         }
     }
 
-    func addNewMessageFromTextField() {
+    @MainActor func addNewMessageFromTextField() {
         let message = Message(content: text, date: Date.now)
         withAnimation {
             messages.append(ChatMessage(message: message, direction: .right))
@@ -58,8 +60,12 @@ extension GroupChatViewModel {
         print("Invoking messages")
         await store.newMessage { [weak self] message in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.addNewMessage(message)
+
+            // Using @MainActor, now our function is actor-isolated
+            // and requires to run in an asynchronous context.
+            // More details here: https://youtu.be/8jvtHCXJ4Ow
+            Task{
+                await self.addNewMessage(message)
             }
         }
     }
