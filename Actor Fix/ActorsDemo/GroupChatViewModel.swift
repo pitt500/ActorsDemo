@@ -64,9 +64,7 @@ extension GroupChatViewModel {
             // Using @MainActor, now our function is actor-isolated
             // and requires to run in an asynchronous context.
             // More details here: https://youtu.be/8jvtHCXJ4Ow
-            Task{
-                await self.addNewMessage(message)
-            }
+            await self.addNewMessage(message)
         }
     }
 }
