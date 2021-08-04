@@ -12,13 +12,13 @@ actor MessageStore {
     private var messageHistory: [Message] = []
     let id = UUID()
 
-    func newMessage(completion: @escaping (Message) -> Void) async {
+    func newMessage(completion: @escaping (Message) async -> Void) async {
         NetworkMessager.shared.fetchMessage { [weak self] message in
             guard let self = self else { return }
 
             Task {
                 await self.saveMessage(message)
-                completion(message)
+                await completion(message)
             }
         }
 
