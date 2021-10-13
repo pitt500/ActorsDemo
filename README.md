@@ -18,7 +18,7 @@ However, that will change forever with the usage of Actors. Let’s explore toda
 In this video, we will learn how to use @MainActor to protect your mutable UI state and always send it to the main thread.
 
 ## Requirements
-- Xcode 13 beta 4+
+- Xcode 13+
 - iOS 15+
 - Swift 5.5+
 
