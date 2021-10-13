@@ -1,5 +1,5 @@
 # Actors
-This a demo made for [Swift && Tips](https://www.youtube.com/c/SwiftandTips)
+This is a demo made for [Swift && Tips](https://www.youtube.com/c/SwiftandTips)
 
 [Link to the video](https://youtu.be/8jvtHCXJ4Ow)
 ![Actors in Swift!](/Actors.001.jpeg)
